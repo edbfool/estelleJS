@@ -1,6 +1,123 @@
-h3 {
+.header {
 
     text-align: center;
     background-color: red;
     color: white;
+    padding: 2em;
+    margin: 0px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+
+    .Navigation-menu {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .Navigation-links {
+            
+            display: flex;
+            flex-direction: row;
+
+            a {
+
+                display: block;
+                margin: 0 1em;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .Navigation-burger, .Navigation-close {
+
+        display: none;
+        cursor: pointer;
+        width: 4em;
+        margin-left: auto;
+
+        .burger {
+
+            display: block;
+            width: 35px;
+            height: .25em;
+            background-color: #fff;
+            margin: 3px 0;
+        }
+    }
+
+    .Navigation-close::after {
+
+        content: '+';
+        display: block;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        font-size: 4em;
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 1023px) {
+
+    .header {
+
+        height: 5em;
+        padding: 0;
+
+        .Navigation-menu {
+
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 18em;
+            height: 100%;
+            background-color: red;
+            transition: left .8s;
+            left: -100%;
+            top: 0;
+
+            .Navigation-links {
+
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                justify-content: center;
+                align-items: flex-start;
+
+                a {
+                    margin: 1em;
+                }
+            }
+
+            &.Navigation-menu--responsive {
+
+                left: 0;
+                z-index: 101;
+                margin-right: 0;
+                padding-left: 2em;
+            }
+        }
+
+        .Navigation-burger, .Navigation-close {
+
+            &.Navigation-burger--visible {
+
+                margin-left: auto;
+                height: 4em;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &.Navigation-close--visible {
+
+                display: block;
+            }
+        }
+    }
 }
