@@ -10,10 +10,10 @@ module.exports = {
                         exclude: /node_modules/,
                         loader: 'babel-loader',
                     },{
-                        test: /\.less$/,
-                        loaders: [ "style-loader","css-loader", "less-loader"]
+                        test: /\.scss$/,
+                        loaders: ['style-loader', 'css-loader', 'sass-loader'],
                     },
-                ]
+                ],
     },
     output: {
         path: path.join(__dirname + 'dist'),
